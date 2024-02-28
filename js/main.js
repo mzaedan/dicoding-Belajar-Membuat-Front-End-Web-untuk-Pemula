@@ -128,13 +128,23 @@ function findBook(bookId) {
 }
 
 function removeBookFromCompleted(bookId) {
-  const bookTarget = findBookIndex(bookId);
+  const bookTarget = findBook(bookId);
 
-  if (bookTarget === -1) return;
+  if (bookTarget == null) return;
 
-  books.splice(bookTarget, 1);
-  document.dispatchEvent(new Event(RENDER_EVENT));
-  saveData();
+  // Show the custom dialog using sweetalert2
+  Swal.fire({
+    title: "Apakah anda yakin ingin menghapus buku ini?",
+    showCancelButton: true,
+    confirmButtonText: "Ya",
+    cancelButtonText: "Batal",
+  }).then((result) => {
+    if (result.isConfirmed) {
+      books.splice(findBookIndex(bookId), 1);
+      document.dispatchEvent(new Event(RENDER_EVENT));
+      saveData();
+    }
+  });
 }
 
 function undoBookFromCompleted(bookId) {
