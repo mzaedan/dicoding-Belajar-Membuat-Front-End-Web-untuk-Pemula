@@ -1,0 +1,67 @@
+<dialog id="confirmationDialog" class="dialog">
+  <h3 class="dialog-title">Hapus Buku</h3>
+  <p class="dialog-message">
+    Anda yakin ingin menghapus buku ini? Aksi ini tidak dapat dibatalkan.
+  </p>
+  <template>
+    <button class="dialog-button confirm-button">Ya, Hapus</button>
+    <button class="dialog-button cancel-button">Batal</button>
+  </template>
+</dialog>
+
+<style>
+  .dialog {
+    --dialog-width: 300px;
+    --dialog-min-width: 300px;
+    --dialog-max-width: 80vw;
+    --dialog-margin: 0;
+    --dialog-padding: 16px;
+    --dialog-background-color: #f1f1f1;
+    --dialog-box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    --dialog-color: #666;
+    --dialog-header-color: #333;
+    font-family: "Lora", serif;
+  }
+
+  .dialog-title {
+    margin: 0;
+    font-size: 1.2rem;
+    text-align: center;
+    color: var(--dialog-header-color);
+  }
+
+  .dialog-message {
+    margin: 16px 0;
+    font-size: 1rem;
+    color: var(--dialog-color);
+  }
+
+  .dialog-button {
+    display: block;
+    width: 100%;
+    padding: 8px;
+    margin: 8px 0;
+    border: none;
+    border-radius: 4px;
+    background-color: #4caf50;
+    color: white;
+    cursor: pointer;
+  }
+
+  .dialog-button:hover {
+    background-color: #45a049;
+  }
+
+  .dialog-button:focus {
+    outline: none;
+    box-shadow: 0 0 0 3px #4caf50;
+  }
+
+  .cancel-button {
+    background-color: #f44336;
+  }
+
+  .cancel-button:hover {
+    background-color: #da190b;
+  }
+</style>
